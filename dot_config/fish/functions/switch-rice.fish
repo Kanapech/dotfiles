@@ -1,18 +1,30 @@
 function switch-rice
     set -l rice $argv[1]
-    
+    set -l rices_file ~/.local/share/chezmoi/.rices
+    set -l rice_configs ~/.local/share/chezmoi/rice-configs
+    set -l rices (cat $rices_file | string split ' ')
+
+    if ! contains $rice $rices
+        echo "Unknown rice '$rice'. Available: $rices"
+        return 1
+    end
+
+    # Stop all running rice shells
+    for r in $rices
+        if test -f $rice_configs/$r.stop
+            fish -c (cat $rice_configs/$r.stop)
+        end
+    end
+
+    sleep 0.5
+
+    # Update chezmoi profile and apply
     sed -i "s/qsConfig = .*/qsConfig = \"$rice\"/" ~/.local/share/chezmoi/.chezmoidata.toml
     chezmoi apply ~/.config/hypr/hyprland.conf
-    
-    pkill -f "caelestia shell"
-    pkill -f "qs -c"
-    sleep 0.5
-    
-    if test $rice = "ii"
-        qs -c ii &
-    else if test $rice = "caelestia"
-        caelestia shell -d
-    end
-    
+
+    # Start new shell as proper systemd user scope
+    set -l start_cmd (cat $rice_configs/$rice.start)
+    systemd-run --user --scope fish -c "$start_cmd"
+
     hyprctl reload
 end

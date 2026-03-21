@@ -33,19 +33,36 @@ function install-rice
         )
 
         if test -n "$start_cmd"
+            # Save start command
             echo $start_cmd > $rice_configs/$rice.start
             echo "Start command detected: $start_cmd"
+
+            # Generate stop command from first two words of start command
+            set -l process (echo $start_cmd | string split ' ' | head -2 | string join ' ')
+            echo "pkill -f '$process'" > $rice_configs/$rice.stop
+            echo "Stop command generated: pkill -f '$process'"
         else
             echo "Could not auto-detect start command. Here are all exec-once lines:"
             grep -v "^#" $rice_dir/hypr/hyprland/execs.conf | grep "exec-once"
+
             echo "Enter the start command manually:"
-            read -l manual_cmd
-            echo $manual_cmd > $rice_configs/$rice.start
+            read -l manual_start
+            echo $manual_start > $rice_configs/$rice.start
+
+            echo "Enter the stop command manually (e.g. pkill -f 'qs -c'):"
+            read -l manual_stop
+            echo $manual_stop > $rice_configs/$rice.stop
         end
     else
-        echo "No execs.conf found. Enter the start command manually:"
-        read -l manual_cmd
-        echo $manual_cmd > $rice_configs/$rice.start
+        echo "No execs.conf found."
+
+        echo "Enter the start command manually:"
+        read -l manual_start
+        echo $manual_start > $rice_configs/$rice.start
+
+        echo "Enter the stop command manually (e.g. pkill -f 'qs -c'):"
+        read -l manual_stop
+        echo $manual_stop > $rice_configs/$rice.stop
     end
 
     echo "Rice '$rice' registered. Run its installer then use switch-rice $rice."
