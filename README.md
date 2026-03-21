@@ -155,3 +155,14 @@ This re-adds all tracked files, updates rice snippets, and pushes everything to 
 - `~/.config/quickshell/<rice>/` is managed per rice — only the active rice's shell config is tracked
 - `rice-configs/*.conf` files are committed to the repo — they are needed at Hyprland startup before any script can run
 - `rice-configs/*.conf.tmpl` are the portable source of truth — `$HOME` paths are replaced with `{{ .chezmoi.homeDir }}`
+
+## Custom ii modifications
+
+These upstream ii files have been modified and are tracked in chezmoi:
+
+- `GlobalStates.qml` — added `appBrowserOpen` property
+- `panelFamilies/IllogicalImpulseFamily.qml` — added AppBrowser loader
+- `modules/ii/overview/SearchBar.qml` — added app browser toggle button
+
+### New modules
+- `modules/ii/appBrowser/AppBrowser.qml` — fullscreen app grid browser
