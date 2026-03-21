@@ -1,0 +1,26 @@
+$qsConfig = ii
+exec = hyprctl dispatch submap global # DO NOT REMOVE THIS OR YOU WON'T BE ABLE TO USE ANY KEYBIND
+submap = global # This is required for catchall to work
+
+# Environment variables
+source = {{ .chezmoi.homeDir }}/.config/hypr/hyprland/env.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/custom/env.conf
+
+# Defaults
+source = {{ .chezmoi.homeDir }}/.config/hypr/hyprland/execs.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/hyprland/general.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/hyprland/rules.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/hyprland/colors.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/hyprland/keybinds.conf
+
+# Custom 
+source = {{ .chezmoi.homeDir }}/.config/hypr/custom/execs.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/custom/general.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/custom/rules.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/custom/keybinds.conf
+
+# nwg-displays support
+source = {{ .chezmoi.homeDir }}/.config/hypr/workspaces.conf
+source = {{ .chezmoi.homeDir }}/.config/hypr/monitors.conf
+
+exec-once = uwsm app -- qs -c ii
