@@ -1,7 +1,7 @@
 function install-rice
     set -l rice $argv[1]
     set -l rices_file ~/.local/share/chezmoi/.rices
-    set -l rice_configs ~/.local/share/chezmoi/rice-configs
+    set -l rice_configs ~/.local/share/rice-configs
     set -l rice_dir ~/.local/share/$rice
 
     if ! test -d $rice_dir
@@ -14,9 +14,13 @@ function install-rice
         echo -n " $rice" >> $rices_file
     end
 
-    # Create hyprland config snippet
+    # Create hyprland config snippet as template
     if test -f $rice_dir/hypr/hyprland.conf
-        cp $rice_dir/hypr/hyprland.conf $rice_configs/$rice.conf
+        sed "s|$HOME|{{ .chezmoi.homeDir }}|g" \
+            $rice_dir/hypr/hyprland.conf \
+            > $rice_configs/$rice.conf.tmpl
+        # Render it immediately too
+        chezmoi execute-template < $rice_configs/$rice.conf.tmpl > $rice_configs/$rice.conf
         echo "Hyprland config snippet created for $rice"
     else
         echo "No hyprland.conf found in $rice_dir/hypr/, skipping snippet creation"
@@ -33,11 +37,9 @@ function install-rice
         )
 
         if test -n "$raw_cmd"
-            # Wrap with uwsm for proper Wayland session management
             echo "uwsm app -t service -- $raw_cmd" > $rice_configs/$rice.start
             echo "Start command detected: $raw_cmd"
 
-            # Generate stop command from first two words of raw command
             set -l process (echo $raw_cmd | string split ' ' | head -2 | string join ' ')
             echo "pkill -f '$process'" > $rice_configs/$rice.stop
             echo "Stop command generated: pkill -f '$process'"

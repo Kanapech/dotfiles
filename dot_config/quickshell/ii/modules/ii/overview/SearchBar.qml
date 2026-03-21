@@ -156,4 +156,19 @@ RowLayout {
             }
         }
     }
+
+    IconToolbarButton {
+        Layout.topMargin: 4
+        Layout.bottomMargin: 4
+        Layout.rightMargin: 4
+        toggled: GlobalStates.appBrowserOpen
+        onClicked: {
+            GlobalStates.overviewOpen = false;
+            GlobalStates.appBrowserOpen = !GlobalStates.appBrowserOpen;
+        }
+        text: "apps"
+        StyledToolTip {
+            text: "App Browser"
+        }
+    }
 }
