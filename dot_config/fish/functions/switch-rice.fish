@@ -9,7 +9,7 @@ function switch-rice
         return 1
     end
 
-    # Stop all running rice shells
+    # Stop all running rice shells using their stop scripts
     for r in $rices
         if test -f $rice_configs/$r.stop
             fish -c (cat $rice_configs/$r.stop)
@@ -22,9 +22,9 @@ function switch-rice
     sed -i "s/qsConfig = .*/qsConfig = \"$rice\"/" ~/.local/share/chezmoi/.chezmoidata.toml
     chezmoi apply ~/.config/hypr/hyprland.conf
 
-    # Start new shell as proper systemd user scope
+    # Start new shell via uwsm
     set -l start_cmd (cat $rice_configs/$rice.start)
-    systemd-run --user --scope fish -c "$start_cmd"
+    fish -c "$start_cmd"
 
     hyprctl reload
 end

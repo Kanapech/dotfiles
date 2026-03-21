@@ -2,6 +2,7 @@ function uninstall-rice
     set -l rice $argv[1]
     set -l rice_dir ~/.local/share/$rice
     set -l rices_file ~/.local/share/chezmoi/.rices
+    set -l rice_configs ~/.local/share/chezmoi/rice-configs
 
     if ! test -d $rice_dir
         echo "Rice '$rice' not found in ~/.local/share/"
@@ -49,6 +50,12 @@ function uninstall-rice
         chezmoi forget ~/.config/quickshell/$rice 2>/dev/null
         rm -rf ~/.config/quickshell/$rice
     end
+
+    # Remove rice-configs files
+    echo "Removing rice-configs files..."
+    rm -f $rice_configs/$rice.conf
+    rm -f $rice_configs/$rice.start
+    rm -f $rice_configs/$rice.stop
 
     # Remove from rices registry
     string replace -r "\b$rice\b" '' (cat $rices_file) | string trim > $rices_file
