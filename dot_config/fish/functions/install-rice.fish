@@ -24,7 +24,7 @@ function install-rice
 
     # Auto-detect shell start command
     if test -f $rice_dir/hypr/hyprland/execs.conf
-        set -l start_cmd (
+        set -l raw_cmd (
             grep -E "exec-once.*(shell|qs -c|quickshell)" \
             $rice_dir/hypr/hyprland/execs.conf \
             | grep -v "^#" \
@@ -32,22 +32,22 @@ function install-rice
             | string replace -r '^\s*exec-once\s*=\s*' ''
         )
 
-        if test -n "$start_cmd"
-            # Save start command
-            echo $start_cmd > $rice_configs/$rice.start
-            echo "Start command detected: $start_cmd"
+        if test -n "$raw_cmd"
+            # Wrap with uwsm for proper Wayland session management
+            echo "uwsm app -t service -- $raw_cmd" > $rice_configs/$rice.start
+            echo "Start command detected: $raw_cmd"
 
-            # Generate stop command from first two words of start command
-            set -l process (echo $start_cmd | string split ' ' | head -2 | string join ' ')
+            # Generate stop command from first two words of raw command
+            set -l process (echo $raw_cmd | string split ' ' | head -2 | string join ' ')
             echo "pkill -f '$process'" > $rice_configs/$rice.stop
             echo "Stop command generated: pkill -f '$process'"
         else
             echo "Could not auto-detect start command. Here are all exec-once lines:"
             grep -v "^#" $rice_dir/hypr/hyprland/execs.conf | grep "exec-once"
 
-            echo "Enter the start command manually:"
+            echo "Enter the raw start command manually (without uwsm prefix):"
             read -l manual_start
-            echo $manual_start > $rice_configs/$rice.start
+            echo "uwsm app -t service -- $manual_start" > $rice_configs/$rice.start
 
             echo "Enter the stop command manually (e.g. pkill -f 'qs -c'):"
             read -l manual_stop
@@ -56,9 +56,9 @@ function install-rice
     else
         echo "No execs.conf found."
 
-        echo "Enter the start command manually:"
+        echo "Enter the raw start command manually (without uwsm prefix):"
         read -l manual_start
-        echo $manual_start > $rice_configs/$rice.start
+        echo "uwsm app -t service -- $manual_start" > $rice_configs/$rice.start
 
         echo "Enter the stop command manually (e.g. pkill -f 'qs -c'):"
         read -l manual_stop

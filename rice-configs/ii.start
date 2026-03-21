@@ -1,1 +1,1 @@
-qs -c ii
+uwsm app -t service -- qs -c ii
