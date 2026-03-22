@@ -1,7 +1,7 @@
 function install-rice
     set -l rice $argv[1]
     set -l rices_file ~/.local/share/chezmoi/.rices
-    set -l rice_configs ~/.local/share/rice-configs
+    set -l rice_configs ~/.local/share/chezmoi/rice-configs
     set -l rice_dir ~/.local/share/$rice
 
     if ! test -d $rice_dir

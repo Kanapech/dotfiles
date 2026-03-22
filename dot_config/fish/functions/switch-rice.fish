@@ -1,7 +1,7 @@
 function switch-rice
     set -l rice $argv[1]
     set -l rices_file ~/.local/share/chezmoi/.rices
-    set -l rice_configs ~/.local/share/rice-configs
+    set -l rice_configs ~/.local/share/chezmoi/rice-configs
     set -l rices (cat $rices_file | string split ' ')
 
     if ! contains $rice $rices
@@ -22,11 +22,11 @@ function switch-rice
         sed -i "s/qsConfig = .*/qsConfig = \"$rice\"/" ~/.local/share/chezmoi/.chezmoidata.toml
     
         # Remove old rendered conf to avoid inconsistent state
-        rm -f ~/.local/share/rice-configs/$rice.conf
+        rm -f ~/.local/share/chezmoi/rice-configs/$rice.conf
     
         # Render rice conf template if it exists
-        if test -f ~/.local/share/rice-configs/$rice.conf.tmpl
-            if ! chezmoi execute-template < ~/.local/share/rice-configs/$rice.conf.tmpl > ~/.local/share/rice-configs/$rice.conf
+        if test -f ~/.local/share/chezmoi/rice-configs/$rice.conf.tmpl
+            if ! chezmoi execute-template < ~/.local/share/chezmoi/rice-configs/$rice.conf.tmpl > ~/.local/share/chezmoi/rice-configs/$rice.conf
                 echo "Error: failed to render $rice config template"
                 return 1
             end
