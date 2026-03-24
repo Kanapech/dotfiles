@@ -2,6 +2,9 @@ $qsConfig = ii
 exec = hyprctl dispatch submap global # DO NOT REMOVE THIS OR YOU WON'T BE ABLE TO USE ANY KEYBIND
 submap = global # This is required for catchall to work
 
+# Rice-independent keybinds
+source = {{ .chezmoi.homeDir }}/.local/share/chezmoi/rice-configs/base.conf
+
 # Environment variables
 source = {{ .chezmoi.homeDir }}/.config/hypr/hyprland/env.conf
 source = {{ .chezmoi.homeDir }}/.config/hypr/custom/env.conf

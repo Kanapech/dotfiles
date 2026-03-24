@@ -1,1 +1,5 @@
+# Base config (rice-independent)
+source = /home/{{ .chezmoi.username }}/.local/share/chezmoi/rice-configs/base.conf
+
+# Rice-specific config
 source = /home/{{ .chezmoi.username }}/.local/share/chezmoi/rice-configs/{{ .qsConfig }}.conf

@@ -2,7 +2,12 @@ function switch-rice
     set -l rice $argv[1]
     set -l rices_file ~/.local/share/chezmoi/.rices
     set -l rice_configs ~/.local/share/chezmoi/rice-configs
-    set -l rices (cat $rices_file | string split ' ')
+    
+    # Parse rice names (before colon if present)
+    set -l rices
+    for line in (cat $rices_file)
+        set -a rices (string split ':' $line)[1]
+    end
 
     if ! contains $rice $rices
         echo "Unknown rice '$rice'. Available: $rices"
@@ -11,26 +16,27 @@ function switch-rice
 
     echo "Stopping current rice shells..."
     for r in $rices
-        if test -f $rice_configs/$r.stop
-            fish -c (cat $rice_configs/$r.stop)
+        set -l rice_name (string split ':' $r)[1]
+        if test -f $rice_configs/$rice_name.stop
+            fish -c (cat $rice_configs/$rice_name.stop)
         end
     end
 
     sleep 0.5
 
     echo "Applying $rice config..."
-        sed -i "s/qsConfig = .*/qsConfig = \"$rice\"/" ~/.local/share/chezmoi/.chezmoidata.toml
-    
-        # Remove old rendered conf to avoid inconsistent state
-        rm -f ~/.local/share/chezmoi/rice-configs/$rice.conf
-    
-        # Render rice conf template if it exists
-        if test -f ~/.local/share/chezmoi/rice-configs/$rice.conf.tmpl
-            if ! chezmoi execute-template < ~/.local/share/chezmoi/rice-configs/$rice.conf.tmpl > ~/.local/share/chezmoi/rice-configs/$rice.conf
-                echo "Error: failed to render $rice config template"
-                return 1
-            end
+    sed -i "s/qsConfig = .*/qsConfig = \"$rice\"/" ~/.local/share/chezmoi/.chezmoidata.toml
+
+    # Remove old rendered conf to avoid inconsistent state
+    rm -f ~/.local/share/chezmoi/rice-configs/$rice.conf
+
+    # Render rice conf template if it exists
+    if test -f ~/.local/share/chezmoi/rice-configs/$rice.conf.tmpl
+        if ! chezmoi execute-template < ~/.local/share/chezmoi/rice-configs/$rice.conf.tmpl > ~/.local/share/chezmoi/rice-configs/$rice.conf
+            echo "Error: failed to render $rice config template"
+            return 1
         end
+    end
 
     if ! chezmoi apply ~/.config/hypr/hyprland.conf
         echo "Error: chezmoi apply failed"
