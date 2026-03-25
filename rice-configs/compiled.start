@@ -1,0 +1,1 @@
+uwsm app -t service -- ashell; uwsm app -t service -- swaync
