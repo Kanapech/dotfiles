@@ -2,7 +2,7 @@ function switch-rice
     set -l rice $argv[1]
     set -l rices_file ~/.local/share/chezmoi/.rices
     set -l rice_configs ~/.local/share/chezmoi/rice-configs
-    
+
     # Parse rice names (before colon if present)
     set -l rices
     for line in (cat $rices_file)
@@ -18,7 +18,7 @@ function switch-rice
     for r in $rices
         set -l rice_name (string split ':' $r)[1]
         if test -f $rice_configs/$rice_name.stop
-            fish -c (cat $rice_configs/$rice_name.stop)
+            fish $rice_configs/$rice_name.stop
         end
     end
 
@@ -58,10 +58,8 @@ function switch-rice
     end
 
     set -l start_cmd (cat $rice_configs/$rice.start)
-    if ! fish -c "$start_cmd"
-        echo "Error: failed to start $rice shell"
-        return 1
-    end
+    nohup fish -c "$start_cmd" >/dev/null 2>&1 &
+    disown
 
     notify-send -i preferences-desktop "Rice switched" "Now running $rice"
     echo "Switched to $rice!"

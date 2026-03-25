@@ -8,6 +8,15 @@ ShellRoot {
     Scope {
         id: root
 
+        Process {
+            id: switchProcess
+
+            onExited: (code, status) => {
+                console.log("switch-rice exited with code:", code, "status:", status)
+                Qt.quit()
+            }
+        }
+
         PanelWindow {
             id: panel
             visible: true
@@ -144,51 +153,49 @@ ShellRoot {
                     if (riceName !== content.activeRice) {
                         switchProcess.command = ["fish", "-c", "switch-rice " + riceName]
                         switchProcess.running = true
-                    }
-                    Qt.quit()
-                }
-
-                Process {
-                    id: switchProcess
-                }
-
-                Process {
-                    id: readRicesProc
-                    property var ricesList: []
-                    command: ["cat", "/home/joran/.local/share/chezmoi/.rices"]
-                    running: true
-                    stdout: SplitParser {
-                        onRead: (data) => {
-                            var line = data.trim()
-                            if (line) {
-                                var parts = line.split(":")
-                                readRicesProc.ricesList.push({ name: parts[0].trim(), path: parts[1] ? parts[1].trim() : "" })
-                            }
-                        }
-                    }
-                    onExited: (exitCode, exitStatus) => {
-                        content.rices = readRicesProc.ricesList
-                    }
-                }
-
-                Process {
-                    id: readActiveProc
-                    property string buffer: ""
-                    command: ["fish", "-c", "grep qsConfig ~/.local/share/chezmoi/.chezmoidata.toml | cut -d'=' -f2 | tr -d ' \"'"]
-                    running: true
-                    stdout: SplitParser {
-                        onRead: (data) => {
-                            readActiveProc.buffer += data
-                        }
-                    }
-                    onExited: (exitCode, exitStatus) => {
-                        content.activeRice = readActiveProc.buffer.trim()
+                        // Qt.quit() is called from switchProcess.onExited
+                    } else {
+                        Qt.quit()
                     }
                 }
 
                 Component.onCompleted: {
                     content.forceActiveFocus()
                 }
+            }
+        }
+
+        Process {
+            id: readRicesProc
+            property var ricesList: []
+            command: ["cat", "/home/joran/.local/share/chezmoi/.rices"]
+            running: true
+            stdout: SplitParser {
+                onRead: (data) => {
+                    var line = data.trim()
+                    if (line) {
+                        var parts = line.split(":")
+                        readRicesProc.ricesList.push({ name: parts[0].trim(), path: parts[1] ? parts[1].trim() : "" })
+                    }
+                }
+            }
+            onExited: (exitCode, exitStatus) => {
+                content.rices = readRicesProc.ricesList
+            }
+        }
+
+        Process {
+            id: readActiveProc
+            property string buffer: ""
+            command: ["fish", "-c", "grep qsConfig ~/.local/share/chezmoi/.chezmoidata.toml | cut -d'=' -f2 | tr -d ' \"'"]
+            running: true
+            stdout: SplitParser {
+                onRead: (data) => {
+                    readActiveProc.buffer += data
+                }
+            }
+            onExited: (exitCode, exitStatus) => {
+                content.activeRice = readActiveProc.buffer.trim()
             }
         }
     }
