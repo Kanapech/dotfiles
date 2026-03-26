@@ -1,3 +1,0 @@
-# Stop compiled rice components
-pkill -f ashell;
-pkill -f swaync;
