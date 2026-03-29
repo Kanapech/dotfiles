@@ -1,1 +1,2 @@
-currentRice = "default"
+[rice]
+active = "default"

@@ -1,1 +1,4 @@
-rice-configs/*.conf
+# Managed by rice switcher at runtime
+.config/hypr/rice.conf
+.config/hypr/hyprlock
+.config/hypr/hypridle
