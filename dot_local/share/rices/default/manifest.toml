@@ -3,10 +3,9 @@ author = "Kanapech"
 description = "Default rice"
 version = "1.0.0"
 
-[symlinks]
-"hyprlock" = "~/.config/hyprlock"
-"hypridle" = "~/.config/hypridle"
-
 [scripts]
 start = "scripts/executable_start.sh"
 stop = "scripts/executable_stop.sh"
+
+[inherit]
+base = "base"
