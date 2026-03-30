@@ -6,6 +6,9 @@ bind = Super, T, exec, kitty
 bind = Super, E, exec, dolphin
 bind = Super, B, exec, firefox
 
+# Environment Variables
+source = ~/.config/hypr/env.conf
+
 # General settings (inputs, binds, cursor etc)
 source = ~/.config/hypr/general.conf
 
@@ -15,6 +18,10 @@ source = ~/.config/hypr/monitors.conf
 
 # Rice-specific config
 source = ~/.local/share/rices/{{ .rice.active }}/hypr/rice.conf
+
+# Sync environment to D-Bus and systemd
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # Execute current rice start
 exec-once = bash ~/.local/share/rices/{{ .rice.active }}/scripts/start.sh
