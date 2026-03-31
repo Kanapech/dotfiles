@@ -1,5 +1,6 @@
 #!/bin/bash
-systemctl --user list-units --no-legend --plain --state=running \
-  | grep -q 'app-Hyprland-ashell.*\.scope' || uwsm app -- ashell --config-path ~/.local/share/rices/default/ashell/config.toml
+pkill -x ironbar || true
+pkill -x swaync || true
 
-systemctl --user is-active --quiet swaync || uwsm app -- swaync
+uwsm app -- ironbar -c ~/.local/share/rices/default/ironbar/config.toml
+uwsm app -- swaync
