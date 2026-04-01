@@ -1,83 +1,86 @@
 name = "bar"
-icon_theme = "Paper"
-
 position = "top"
+height = 20
+layer = "background"
+"margin.left" = 10
+"margin.right" = 10
+"margin.top" = 5
 
 [[start]]
 type = "menu"
 label = "󱓞"
+center = [ ]
+end = [ ]
+
+  [[start.start]]
+  type = "custom"
+  label = "  Terminal"
+  on_click = "kitty"
+
+  [[start.start]]
+  type = "custom"
+  label = " Reboot"
+  on_click = "systemctl reboot"
+
+  [[start.start]]
+  type = "custom"
+  label = "  Power Off"
+  on_click = "systemctl poweroff"
+
+[[start]]
+type = "custom"
+
+  [[start.bar]]
+  type = "label"
+  label = " 󰿟 "
+  class = "divider"
 
 [[start]]
 type = "workspaces"
 
-[[start]]
-type = "launcher"
-favorites = ["firefox", "discord", "kitty"]
-icon_size = 25
-
-[start.truncate]
-mode = "end"
-max_length = 30
-
 [[center]]
-type = "music"
-player_type = "mpd"
-format = "{title} / {artist}"
-truncate = "end"
-
-[center.icons]
-play = ""
-pause = ""
-
-[[end]]
 type = "focused"
-show_icon = true
-show_title = true
-icon_size = 15
-truncate = "start"
-
-[[end]]
-type = "battery"
-show_if = "ls /sys/class/power_supply/ | grep --quiet '^BAT'"
-
-[[end]]
-type = "sys_info"
-format = [
-    "{cpu_percent}%   | {temp_c:k10temp-Tctl}°C",
-    "{memory_percent}% "
-]
-
-[end.interval]
-cpu = 5
-memory = 5
-temps = 5
-
-[[end]]
-type = "clipboard"
-max_items = 10
-
-[end.truncate]
-mode = "end"
-length = 30
-
-[[end]]
-type = "volume"
-format = "{icon} {percentage}%"
-popup_orientation = 'vertical'
-sink_slider_orientation = 'vertical'
-source_slider_orientation = 'vertical'
-
-[end.icons]
-volume_high = "󰕾"
-volume_medium = "󰖀"
-volume_low = "󰕿"
-muted = "󰝟"
+icon_size = 14
+truncate = "end"
 
 [[end]]
 type = "tray"
 
 [[end]]
+type = "custom"
+
+  [[end.bar]]
+  type = "label"
+  label = " 󰿟 "
+  class = "divider"
+
+[[end]]
+type = "volume"
+format = "{icon}  {percentage}%"
+max_volume = 100
+
+  [end.icons]
+  muted = ""
+  volume_low = ""
+  volume_medium = ""
+  volume_high = ""
+
+[[end]]
+type = "custom"
+
+  [[end.bar]]
+  type = "label"
+  label = " 󰿟 "
+  class = "divider"
+
+[[end]]
 type = "clock"
+format = "%H:%M"
+
+  [[end.bar]]
+  type = "label"
+  label = " 󰿟 "
+  class = "divider"
 
 [[end]]
 type = "keyboard"
