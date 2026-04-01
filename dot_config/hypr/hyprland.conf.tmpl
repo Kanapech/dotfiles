@@ -1,6 +1,7 @@
 # Rice-agnostic base
 # Rice-independent keybinds
-bind = Alt, R, exec, fish -c rice-switcher
+bind = Alt, R, exec, fish -i -c rice-menu
+bind = Super+Shift, R, exec, fish -i -c rice-cycle
 bind = Super, R, exec, pkill rofi || rofi -show drun
 bind = Super, T, exec, kitty
 bind = Super, E, exec, dolphin
