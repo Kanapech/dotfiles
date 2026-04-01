@@ -9,6 +9,8 @@ stop = "scripts/stop.sh"
 
 [symlinks]
 "hypr/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
+"rofi" = "~/.config/rofi"
+"yazi" = "~/.config/yazi"
 
 [inherit]
 base = "base"
