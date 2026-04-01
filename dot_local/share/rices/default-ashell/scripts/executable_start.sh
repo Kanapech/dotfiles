@@ -1,6 +1,6 @@
 #!/bin/bash
-pkill -x ashell || true
-pkill -x swaync || true
+pkill -x --wait ashell || true
+pkill -x --wait swaync || true
 
 CONFIG="$HOME/.local/share/rices/default-ashell/ashell/config.toml"
 
