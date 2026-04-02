@@ -12,6 +12,7 @@ stop = "scripts/stop.sh"
 "rofi" = "~/.config/rofi"
 "yazi" = "~/.config/yazi"
 "ironbar" = "~/.config/ironbar"
+"swaync" = "~/.config/swaync"
 
 [inherit]
 base = "base"
