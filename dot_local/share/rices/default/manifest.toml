@@ -11,6 +11,7 @@ stop = "scripts/stop.sh"
 "hypr/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
 "rofi" = "~/.config/rofi"
 "yazi" = "~/.config/yazi"
+"ironbar" = "~/.config/ironbar"
 
 [inherit]
 base = "base"
