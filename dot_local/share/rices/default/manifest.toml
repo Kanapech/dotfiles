@@ -13,6 +13,8 @@ stop = "scripts/stop.sh"
 "yazi" = "~/.config/yazi"
 "ironbar" = "~/.config/ironbar"
 "swaync" = "~/.config/swaync"
+"wlogout" = "~/.config/wlogout"
+"waybar" = "~/.config/waybar"
 
 [inherit]
 base = "base"

@@ -1,6 +1,6 @@
 #!/bin/bash
-pkill -x --wait ironbar || true
+pkill -x --wait waybar || true
 pkill -x --wait swaync || true
 
-uwsm app -- ironbar
+uwsm app -- waybar
 uwsm app -- swaync

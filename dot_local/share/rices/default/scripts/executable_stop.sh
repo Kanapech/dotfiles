@@ -1,3 +1,3 @@
 #!/bin/bash
-pkill -x ironbar || true
+pkill -x waybar || true
 pkill -x swaync || true
