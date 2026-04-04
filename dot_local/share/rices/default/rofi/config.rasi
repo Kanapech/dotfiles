@@ -23,10 +23,8 @@ window {
     anchor: center;
     width: 520px;
 
-    background-color: rgba(15, 15, 15, 0.6);
+    background-color: rgba(22, 22, 22, 1);
     border-radius: 24px;
-    border: 1px;
-    border-color: rgba(110,231,255,0.2);
     padding: 16px;
 }
 
@@ -38,7 +36,6 @@ mainbox {
 /* ===== SEARCH BAR ===== */
 inputbar {
     border: 1px;
-    border-color: rgba(110,231,255,0.15);
     background-color: rgba(255,255,255,0.05);
     border-radius: 14px;
     padding: 10px 14px;
@@ -85,7 +82,7 @@ element urgent.normal {
 
 /* SELECTED */
 element selected.normal {
-    background-color: rgba(110,231,255,0.22);
+    background-color: #84130C;
 }
 
 /* TEXT */
