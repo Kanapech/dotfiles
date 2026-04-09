@@ -1,12 +1,26 @@
 {
-	"layer": "top", "position": "top",
-	"modules-left": ["hyprland/window", "wlr/taskbar", "memory", "cpu", "temperature"],
+	"layer": "top", 
+	"position": "top", 
+	"margin-top": 1,
+	"height": 20,
+	"spacing" : 8,
+	"modules-left": ["hyprland/window", "wlr/taskbar", "group/hardware"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["tray", "backlight", "power-profiles-daemon", "gamemode", "pulseaudio", "network", "battery", "hyprland/language", "clock"],
+	"modules-right": [
+		"tray", 
+		"backlight", 
+		"power-profiles-daemon", 
+		"pulseaudio", 
+		"network", 
+		"battery", 
+		"hyprland/language", 
+		"clock", 
+		"custom/notification"
+	],
 	"reload_style_on_change":true,
 
 	"hyprland/window": {
-		"max-length": 30,
+		"max-length": 15,
 		"tooltip": false,
 		"format": "- {initialTitle} -",
 		"separate-outputs": true,
@@ -98,19 +112,6 @@
 		}
 	},
 
-	"gamemode": {
-		"format": "{glyph}",
-		"format-alt": "{glyph} {count}",
-		"glyph": "",
-		"hide-not-running": true,
-		"use-icon": true,
-		"icon-name": "input-gaming-symbolic",
-		"icon-spacing": 4,
-		"icon-size": 20,
-		"tooltip": true,
-		"tooltip-format": "Games running: {count}"
-	}, 
-
 	"network": {
 		"interface": "enp12s0",
 		"format-wifi": " ",
@@ -163,12 +164,14 @@
 		"smooth-scrolling-threshold": 1
 	},
 
-	"disk": {
-		"interval": 30,
-		"format": "  {percentage_used}%",
-		"path": "/",
-		"on-click": "kitty --class kitty-btop btop"
-		},
+	"group/hardware": {
+		"orientation": "inherit",
+		"modules": [
+			"cpu",
+			"memory",
+			"temperature"
+		]
+	},
 
 	"cpu": {
 		"interval": 1,
@@ -195,7 +198,7 @@
 	},
 
 	"pulseaudio": {
-		"format": "{volume}% {icon}",
+		"format": "{icon} {volume} %",
 		"format-bluetooth":"󰂰",
 		"format-muted": "<span font='12'></span>",
 		"format-icons": {
@@ -208,14 +211,13 @@
 			"car": "",
 			"default": ["🕨","🕩","🕪"]
 		},
-		"justify": "center",
 		"on-click": "amixer sset Master toggle",
 		"on-click-right": "pavucontrol",
-		"tooltip-format": "{icon}  {volume}%"
+		"tooltip-format": "{icon} {volume}%"
 	},
 
 	"jack": {
-	    "format": "{} 󱎔",
+	    "format": "{} 󱎔 ",
 	    "format-xrun": "{xruns} xruns",
 	    "format-disconnected": "DSP off",
 	    "realtime": true
@@ -238,5 +240,26 @@
 		"interval": 1,
 		"exec": "~/.local/share/rices/default/waybar/scripts/powerdraw.sh",
 		"return-type": "json"
+	},
+
+	"custom/notification": {
+	    "tooltip": false,
+	    "format": "{icon} ",
+	    "format-icons": {
+	        "notification": "󱅫",
+	        "none": "",
+	        "dnd-notification": "",
+	        "dnd-none": "󰂛",
+	        "inhibited-notification": "",
+	        "inhibited-none": "",
+	        "dnd-inhibited-notification": "",
+	        "dnd-inhibited-none": ""
+	    },
+	    "return-type": "json",
+	    "exec-if": "which swaync-client",
+	    "exec": "swaync-client -swb",
+	    "on-click": "sleep 0.1 && swaync-client -t -sw",
+	    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+	    "escape": true
 	}
 }
