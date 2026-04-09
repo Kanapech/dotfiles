@@ -4,8 +4,8 @@
 	"margin-top": 1,
 	"height": 20,
 	"spacing" : 8,
-	"modules-left": ["hyprland/window", "wlr/taskbar", "group/hardware"],
-	"modules-center": ["hyprland/workspaces"],
+	"modules-left": ["hyprland/workspaces", "group/hardware", "hyprland/window"],
+	"modules-center": ["clock"],
 	"modules-right": [
 		"tray", 
 		"backlight", 
@@ -14,15 +14,14 @@
 		"network", 
 		"battery", 
 		"hyprland/language", 
-		"clock", 
 		"custom/notification"
 	],
 	"reload_style_on_change":true,
 
 	"hyprland/window": {
-		"max-length": 15,
+		"max-length": 30,
 		"tooltip": false,
-		"format": "- {initialTitle} -",
+		"format": "{title}",
 		"separate-outputs": true,
 		"icon": true,
 		"icon-size": 14,

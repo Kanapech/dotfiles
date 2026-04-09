@@ -22,8 +22,9 @@ window#waybar{
 	border-radius: 15px;
 }
 
-#window {
-    min-width: 12em;
+/* make window module transparent when no windows present */
+window#waybar.empty #window {
+    background-color: transparent;
 }
 
 #backlight,
