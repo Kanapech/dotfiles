@@ -15,6 +15,7 @@ stop = "scripts/stop.sh"
 "swaync" = "~/.config/swaync"
 "wlogout" = "~/.config/wlogout"
 "waybar" = "~/.config/waybar"
+"kitty" = "~/.config/kitty"
 
 [inherit]
 base = "base"
