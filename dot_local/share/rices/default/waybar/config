@@ -7,13 +7,14 @@
 	"modules-left": ["hyprland/workspaces", "group/hardware", "hyprland/window"],
 	"modules-center": ["clock"],
 	"modules-right": [
+		"custom/ScrollMPRIS",
 		"tray", 
 		"backlight", 
 		"power-profiles-daemon", 
-		"pulseaudio", 
-		"network", 
+		"pulseaudio",
+		"group/networking",  
 		"battery", 
-		"hyprland/language", 
+		"group/keyboard",
 		"custom/notification"
 	],
 	"reload_style_on_change":true,
@@ -50,11 +51,31 @@
 		}
 	},
 
+	"group/keyboard": {
+		"orientation": "inherit",
+		"modules": [
+			"hyprland/language",
+			"keyboard-state"
+		]
+	},
+
 	"hyprland/language": {
-	    "format": "{}",
+		"on-click": "hyprctl switchxkblayout '2.4g-dongle' next",
+	    "on-scroll-up": "hyprctl switchxkblayout '2.4g-dongle' next",
+        "on-scroll-down": "hyprctl switchxkblayout '2.4g-dongle' prev",
+	    "format": "   {}",
 	    "format-en": "us",
 	    "format-fr": "fr",
 	    "keyboard-name": "2.4g-dongle"
+	},
+
+	"keyboard-state": {
+	    "capslock": true,
+	    "format": "{name} {icon}",
+	    "format-icons": {
+	        "locked": "",
+	        "unlocked": ""
+	    }
 	},
 
 	"wlr/taskbar": {
@@ -76,7 +97,7 @@
 	},
 
 	"clock": {
-	      "format": "{:%H:%M}",
+	      "format": "   {:%H:%M}",
 	      "interval":1,
 	      "tooltip-format": "\n<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 	      "calendar-weeks-pos": "right",
@@ -84,6 +105,33 @@
 	      "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
 	      "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
 	      "format-calendar-weekdays": "<span color='#aeaeae'><b>{}</b></span>"
+	},
+
+	"custom/ScrollMPRIS": {
+	    "return-type": "json",
+	    "exec": "ScrollMPRIS --format '{title} - {album} - {artist}' -s 50 -w 40 --scroll reset --freeze",
+	    "escape": true,
+	    "on-click": "playerctl play-pause"
+	},
+
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			 "default": "",
+			 "performance": "",
+			 "balanced": "",
+			 "power-saver": ""
+		}
+	},
+
+	"group/networking": {
+		"orientation": "inherit",
+		"modules": [
+			"network",
+			"bluetooth"
+		]
 	},
 
 	"bluetooth": {
@@ -99,22 +147,10 @@
 		"on-click": "rofi-bluetooth",
  	},
 
-	"power-profiles-daemon": {
-		"format": "{icon}",
-		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-		"tooltip": true,
-		"format-icons": {
-			 "default": "",
-			 "performance": "",
-			 "balanced": "",
-			 "power-saver": ""
-		}
-	},
-
 	"network": {
 		"interface": "enp12s0",
 		"format-wifi": " ",
-		"format-ethernet":"󰈀",
+		"format-ethernet": "󰈀",
 		"format-disconnected": "",
 		"tooltip-format": "{ipaddr}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
@@ -129,8 +165,8 @@
 			"warning": 30,
 			"critical": 20
 		},
-		"format": "{capacity}%  {icon} ",
-		"format-charging": "{capacity}% 󰂄 ",
+		"format": "{capacity}%  {icon}",
+		"format-charging": "{capacity}% 󰂄",
 		"format-plugged": "{capacity}% 󰂄 ",
 		"format-alt": "{time} {icon}",
 		"format-icons": [
@@ -197,7 +233,7 @@
 	},
 
 	"pulseaudio": {
-		"format": "{icon} {volume} %",
+		"format": "{icon}   {volume}%",
 		"format-bluetooth":"󰂰",
 		"format-muted": "<span font='12'></span>",
 		"format-icons": {
@@ -208,11 +244,11 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["🕨","🕩","🕪"]
+			"default": ["","",""]
 		},
 		"on-click": "amixer sset Master toggle",
 		"on-click-right": "pavucontrol",
-		"tooltip-format": "{icon} {volume}%"
+		"tooltip-format": "{icon}   {volume}%"
 	},
 
 	"jack": {
@@ -243,7 +279,7 @@
 
 	"custom/notification": {
 	    "tooltip": false,
-	    "format": "{icon} ",
+	    "format": "{icon}",
 	    "format-icons": {
 	        "notification": "󱅫",
 	        "none": "",
