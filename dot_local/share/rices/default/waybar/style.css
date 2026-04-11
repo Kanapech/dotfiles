@@ -36,7 +36,18 @@ window#waybar.empty #window {
 
 #bluetooth,
 #network{
-	padding: 2px 8px;
+	padding: 8px;
+}
+
+#language,
+#keyboard-state{
+	padding: 4px;
+}
+
+#cpu,
+#memory,
+#temperature{
+	padding: 4px;
 }
 
 #temperature.critical,
