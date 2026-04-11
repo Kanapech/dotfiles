@@ -19,7 +19,7 @@ window#waybar.empty #window {
 #idle_inhibitor,
 #jack,
 #networking,
-#power-profiles-daemon,
+#performance,
 #pulseaudio,
 #hardware,
 #tray,
@@ -48,6 +48,11 @@ window#waybar.empty #window {
 #memory,
 #temperature{
 	padding: 4px;
+}
+
+#power-profiles-daemon,
+#gamemode{
+	padding: 8px;
 }
 
 #temperature.critical,
