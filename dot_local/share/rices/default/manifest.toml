@@ -9,6 +9,8 @@ stop = "scripts/stop.sh"
 
 [symlinks]
 "hypr/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
+"hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
+"hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
 "rofi" = "~/.config/rofi"
 "yazi" = "~/.config/yazi"
 "ironbar" = "~/.config/ironbar"
@@ -16,6 +18,3 @@ stop = "scripts/stop.sh"
 "wlogout" = "~/.config/wlogout"
 "waybar" = "~/.config/waybar"
 "kitty" = "~/.config/kitty"
-
-[inherit]
-base = "base"
