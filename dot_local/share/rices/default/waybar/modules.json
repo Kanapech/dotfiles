@@ -43,7 +43,7 @@
 		"on-click": "hyprctl switchxkblayout '2.4g-dongle' next",
 	    "on-scroll-up": "hyprctl switchxkblayout '2.4g-dongle' next",
         "on-scroll-down": "hyprctl switchxkblayout '2.4g-dongle' prev",
-	    "format": "   {}",
+	    "format": " {}",
 	    "format-en": "us",
 	    "format-fr": "fr",
 	    "keyboard-name": "2.4g-dongle"
@@ -77,7 +77,7 @@
 	},
 
 	"clock": {
-	      "format": "   {:%H:%M}",
+	      "format": " {:%H:%M}",
 	      "interval":1,
 	      "tooltip-format": "\n<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 	      "calendar-weeks-pos": "right",
@@ -166,7 +166,7 @@
 			"warning": 30,
 			"critical": 20
 		},
-		"format": "{capacity}%  {icon}",
+		"format": "{capacity}% {icon}",
 		"format-charging": "{capacity}% 󰂄",
 		"format-plugged": "{capacity}% 󰂄 ",
 		"format-alt": "{time} {icon}",
@@ -211,7 +211,7 @@
 
 	"cpu": {
 		"interval": 1,
-		"format": "  {usage}%",
+		"format": " {usage}%",
 		"min-length": 6,
 		"max-length": 6,
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -219,7 +219,7 @@
 	},
 
 	"memory": {
-		"format": "  {percentage}%",
+		"format": " {percentage}%",
 		"on-click": "kitty --class kitty-btop btop"
 	},
 
@@ -234,7 +234,7 @@
 	},
 
 	"pulseaudio": {
-		"format": "{icon}   {volume}%",
+		"format": "{icon} {volume}%",
 		"format-bluetooth":"󰂰",
 		"format-muted": "<span font='12'></span>",
 		"format-icons": {
