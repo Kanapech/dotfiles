@@ -12,3 +12,7 @@ run = [ 'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text
 on  = "<C-n>"
 run = "shell -- ripdrag %s -x 2>/dev/null &"
 desc = "Ripdrag drag/drop selected files"
+
+[[mgr.prepend_keymap]]
+on  = "M"
+run = "plugin mount"
