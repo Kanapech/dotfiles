@@ -210,7 +210,7 @@
 	},
 
 	"cpu": {
-		"interval": 1,
+		"interval": 3,
 		"format": " {usage}%",
 		"min-length": 6,
 		"max-length": 6,
@@ -219,6 +219,7 @@
 	},
 
 	"memory": {
+		"interval": 3,
 		"format": " {percentage}%",
 		"on-click": "kitty --class kitty-btop btop"
 	},
