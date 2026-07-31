@@ -12,7 +12,6 @@
 	"modules-right": [
 		"custom/ScrollMPRIS",
 		"tray", 
-		"backlight", 
 		"group/performance", 
 		"pulseaudio",
 		"group/networking",  
