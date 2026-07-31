@@ -137,7 +137,7 @@
 
 	"bluetooth": {
 		"format-on": "",
-		"format-off": "",
+		"format-off": "󰂲",
 		"format-disabled": "󰂲",
 		"format-connected": "󰂴",
 		"format-connected-battery": "{device_battery_percentage}% 󰂴",
@@ -156,7 +156,7 @@
 		"tooltip-format": "{ipaddr}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
 		"tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
-		"on-click": "networkmanager_dmenu"
+		"on-click": "rofi-network-manager"
 	},
 
 	"battery": {
