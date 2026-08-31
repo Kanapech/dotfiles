@@ -1,4 +1,11 @@
 {
+	"custom/menu": {
+	    "format": "󰀻",
+	    "tooltip": false,
+	    "on-click": "rofi -show drun",
+	    "on-click-right": "rofi -show run"
+	},
+	
 	"hyprland/window": {
 		"max-length": 30,
 		"tooltip": false,

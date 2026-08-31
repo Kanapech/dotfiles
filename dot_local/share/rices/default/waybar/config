@@ -7,7 +7,7 @@
 	"include": [
 		"~/.local/share/rices/default/waybar/modules.json",
 	],
-	"modules-left": ["hyprland/workspaces", "group/hardware", "hyprland/window"],
+	"modules-left": ["custom/menu", "hyprland/workspaces", "group/hardware", "hyprland/window"],
 	"modules-center": ["clock"],
 	"modules-right": [
 		"custom/ScrollMPRIS",
