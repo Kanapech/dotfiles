@@ -31,5 +31,5 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprlock")
 
     -- Execute current rice start
-    hl.exec_cmd("bash ~/.local/share/rices/default/scripts/start.sh")
+    hl.exec_cmd("bash ~/.local/share/rices/{{ .rice.active }}/scripts/start.sh")
 end)
