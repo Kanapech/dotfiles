@@ -131,6 +131,8 @@ for _, class in ipairs({
             class = class,
         },
         immediate = true,
+        opaque = true,
+        idle_inhibit = "fullscreen",
     })
 end
 -- ######## Workspace rules
