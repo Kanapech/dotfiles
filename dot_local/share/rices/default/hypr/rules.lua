@@ -63,7 +63,6 @@ hl.window_rule({
     float = true,
     pin = true,
     keep_aspect_ratio = true,
-    persistent_size = true,
     move = {
         "monitor_w * 0.70",
         "monitor_h * 0.05",
@@ -133,6 +132,9 @@ for _, class in ipairs({
         immediate = true,
         opaque = true,
         idle_inhibit = "fullscreen",
+        no_blur = true,
+        no_shadow = true,
+        no_anim = true
     })
 end
 -- ######## Workspace rules
