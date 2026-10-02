@@ -1,4 +1,11 @@
 -- ######## Window rules
+hl.window_rule({
+  match = {
+    class = ".*"
+  },
+  suppress_event = "maximize"
+});
+
 -- Floating dialogs
 for _, title in ipairs({
     "^(Open File)(.*)$",
@@ -108,9 +115,9 @@ hl.window_rule({
 hl.window_rule({
     match = {
         class = "^jetbrains-.*$",
-        float = true,
         title = "^$|^\\s$|^win\\d+$",
     },
+    float = true,
     no_initial_focus = true,
 })
 -- Discord
