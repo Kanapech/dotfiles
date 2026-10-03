@@ -5,7 +5,7 @@ configuration {
     modi: "drun";
     show-icons: true;
     drun-display-format: "{name}";
-    drun-match-fields: "name";
+    drun-match-fields: "name,generic,exec,categories,keywords";
     sorting-method: "fzf";
 }
 
