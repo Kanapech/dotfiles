@@ -1,0 +1,109 @@
+# ######## Noctalia ########
+[[window_rule]]
+match.app_id = '^dev\.noctalia\.Noctalia$'
+default_floating = true
+default_floating_size_px = { width = 1080, height = 920 }
+
+[[layer_rule]]
+match.namespace = '^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$'
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+
+# ######## Window rules ########
+
+# Floating dialogs (dialogs float by default in Umbriel; this adds centering)
+[[window_rule]]
+match.title = '^(Open File)(.*)$|^(Select a File)(.*)$|^(Open Folder)(.*)$|^(Save As)(.*)$|^(File Upload)(.*)$|^(.*)(wants to save)$|^(.*)(wants to open)$'
+default_floating = true
+default_position = { x = 0, y = 0, anchor = "center" }
+
+# btop in kitty
+[[window_rule]]
+match.app_id = '^kitty-btop$'
+default_floating = true
+default_floating_size_px = { width = 900, height = 600 }
+default_position = { x = 0, y = 0, anchor = "center" }
+
+# pavucontrol / nm-connection-editor
+[[window_rule]]
+match.app_id = '^(pavucontrol|nm-connection-editor)$'
+default_floating = true
+default_floating_size = { width = 0.45, height = 0.45 }
+default_position = { x = 0, y = 0, anchor = "center" }
+
+[[window_rule]]
+match.app_id = '^blueberry\.py$'
+default_floating = true
+
+[[window_rule]]
+match.app_id = '^guifetch$'
+default_floating = true
+
+# Picture-in-Picture
+[[window_rule]]
+match.title = '^Picture-in-Picture$'
+default_floating = true
+default_pinned = true
+default_position = { x = 32, y = 32, anchor = "top_right" }
+
+[[window_rule]]
+match.app_id = '^dev\.warp\.Warp$'
+default_floating = false
+
+# Discord stream popout
+[[window_rule]]
+match.app_id = '^discord$'
+match.title = '^Discord Popout$'
+default_floating = true
+default_pinned = true
+default_floating_size_px = { width = 480, height = 270 }
+default_position = { x = 20, y = 20, anchor = "top_right" }
+
+# Tearing (games)
+[[window_rule]]
+match.title = '.*\.exe'
+tearing = true
+
+[[window_rule]]
+match.title = '.*minecraft.*'
+tearing = true
+
+[[window_rule]]
+match.app_id = '^steam_app'
+tearing = true
+
+# Archetype Plini
+[[window_rule]]
+match.app_id = '^archetype plini x\.exe$'
+match.title = '^Archetype Plini X$'
+default_floating = true
+default_position = { x = 0, y = 0, anchor = "center" }
+tearing = true
+
+# JetBrains IDE fix
+[[window_rule]]
+match.app_id = '^jetbrains-.*$'
+match.title = '^$|^\s$|^win\d+$'
+default_floating = true
+default_focused = false
+
+# Discord
+[[window_rule]]
+match.app_id = 'discord'
+opacity = 0.92
+
+# FFPlay / MPV
+[[window_rule]]
+match.app_id = '^(ffplay|mpv)$'
+tearing = true
+opacity = 1.0
+blur = false
+shadow = false
+
+# ######## Layer rules ########
+# Rofi
+[[layer_rule]]
+match.namespace = 'rofi'
+blur = true
+blur_ignore_alpha = 0.2

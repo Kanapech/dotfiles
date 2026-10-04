@@ -1,7 +1,7 @@
 [metadata]
 author = "Kanapech"
 version = "0.1.0"
-description = "Noctalia shell on Hyprland (bar, launcher, notifications, lock)"
+description = "Noctalia shell, both Hyprland and Umbriel compatible (bar, launcher, notifications, lock)"
 
 [symlinks]
 "noctalia" = "~/.config/noctalia"

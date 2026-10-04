@@ -1,0 +1,20 @@
+[output.HDMI-A-1]
+mode = "1920x1080@60"
+position = [4480, 360]
+scale = 1.0
+vrr = "disabled"
+workspace_axis = "horizontal"
+
+[output.DP-1]
+mode = "2560x1440@240"
+position = [1920, 0]
+scale = 1.0
+vrr = "disabled"
+workspace_axis = "horizontal"
+
+[output.DP-2]
+mode = "1920x1080@119.98"
+position = [0, 280]
+scale = 1.0
+vrr = "disabled"
+workspace_axis = "horizontal"

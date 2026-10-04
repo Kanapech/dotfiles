@@ -1,0 +1,15 @@
+[input]
+middle_click_paste = true
+client_window_drag = true
+
+[input.mouse]
+natural_scroll = false
+left_handed = false
+accel_profile = "flat"
+sensitivity = 0.0
+scroll_wheel_step = 60
+
+[input.touchpad]
+tap = true
+natural_scroll = true
+left_handed = false
