@@ -1,0 +1,56 @@
+# Umbriel starter config — https://docs.noctalia.dev/umbriel
+# Validate without a session: umbriel config validate
+
+[general]
+autostart = [
+    "noctalia",
+    "systemctl --user restart sunshine.service",
+    "~/.config/umbriel/lock-at-start.sh",
+]
+mod_key = "Super"
+show_cheatsheet = false
+
+[environment]
+ELECTRON_OZONE_PLATFORM_HINT = "auto"
+SDL_VIDEODRIVER = "wayland"
+
+[keybinds]
+# Apps
+"Mod+T" = "spawn:kitty"
+"Mod+E" = "spawn:kitty fish -i -c y"
+"Mod+B" = "spawn:firefox"
+# Noctalia shell
+"Mod+R" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
+"Alt+Tab" = "spawn:noctalia msg window-switcher"
+"Mod+N" = "spawn:noctalia msg panel-toggle control-center"
+"Mod+V" = "spawn:noctalia msg panel-toggle clipboard"
+"Mod+Comma" = "spawn:noctalia msg settings-toggle"
+# Rice switcher
+"Alt+R" = { action = "spawn:fish -i -c rice-menu", repeat = false }
+"Mod+Shift+R" = { action = "spawn:fish -i -c rice-cycle", repeat = false }
+# Windows (verify remaining names via `umbriel config schema`)
+"Mod+Q" = "window-close"
+"Mod+Left" = "window-focus-left"
+"Mod+Right" = "window-focus-right"
+"Mod+Up" = "window-focus-up"
+"Mod+Down" = "window-focus-down"
+"Mod+D" = "window-toggle-fullscreen"
+# Session
+"Mod+L" = "spawn:noctalia msg session lock"
+"Mod+Shift+L" = "spawn:noctalia msg session lock-and-suspend"
+# Media / brightness (Noctalia OSD)
+"XF86AudioRaiseVolume" = "spawn:noctalia msg volume-up"
+"XF86AudioLowerVolume" = "spawn:noctalia msg volume-down"
+"XF86AudioMute" = "spawn:noctalia msg volume-mute"
+"XF86AudioMicMute" = "spawn:wpctl set-mute @DEFAULT_SOURCE@ toggle"
+"XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up"
+"XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down"
+"XF86AudioPlay" = "spawn:playerctl play-pause"
+"XF86AudioNext" = "spawn:playerctl next"
+"XF86AudioPrev" = "spawn:playerctl previous"
+# Screenshots
+"Print" = "spawn:noctalia msg screenshot-fullscreen"
+"Mod+Shift+S" = "spawn:noctalia msg screenshot-region"
+
+[include.optional]
+files = []

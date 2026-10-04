@@ -1,0 +1,12 @@
+[metadata]
+author = "Kanapech"
+version = "0.1.0"
+description = "Noctalia shell on Hyprland (bar, launcher, notifications, lock)"
+
+[symlinks]
+"noctalia" = "~/.config/noctalia"
+"hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
+
+"rofi" = "~/.config/rofi"
+"yazi" = "~/.config/yazi"
+"kitty" = "~/.config/kitty"

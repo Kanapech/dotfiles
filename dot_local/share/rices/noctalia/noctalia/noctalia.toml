@@ -1,0 +1,4 @@
+# Noctalia v5 config — defaults are sane; tune from GUI settings or
+# https://github.com/noctalia-dev/noctalia/blob/main/example.toml
+# Idle locking is handled by hypr/hypridle.conf in this rice — if Noctalia
+# has built-in idle timers, disable one or the other to avoid double-locking.
