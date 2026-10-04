@@ -75,6 +75,19 @@ hl.window_rule({
         "monitor_h * 0.05",
     },
 })
+
+hl.window_rule({
+    name  = "discord-stream-pip",
+    match = {
+        class         = "^(discord)$",
+        initial_title = "^(Discord Popout)$",
+    },
+    float             = true,
+    pin               = true,
+    size              = "480 270",
+    move              = "monitor_w-window_w-20 20",
+    keep_aspect_ratio = true,
+})
 -- Tiling
 hl.window_rule({
     match = {
