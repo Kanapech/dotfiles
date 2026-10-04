@@ -1,4 +1,5 @@
 -- ##! Shell
+hl.bind("SUPER + R", hl.dsp.exec_cmd("pkill rofi || rofi -show drun"))
 
 hl.bind("XF86MonBrightnessUp",
     hl.dsp.exec_cmd("brightnessctl s 5%+"),

@@ -3,7 +3,6 @@
 -- Rice-independent keybinds
 hl.bind("ALT + R", hl.dsp.exec_cmd("fish -i -c rice-menu"))
 hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("fish -i -c rice-cycle"))
-hl.bind("SUPER + R", hl.dsp.exec_cmd("pkill rofi || rofi -show drun"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty fish -i -c y"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("firefox"))
@@ -26,9 +25,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_RUNTIME_DIR")
     hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS")
     hl.exec_cmd("systemctl --user restart sunshine.service")
-
-    -- Execute hyprlock on start because sddm auto logs in
-    hl.exec_cmd("hyprlock")
 
     -- Execute current rice start
     hl.exec_cmd("bash ~/.local/share/rices/{{ .rice.active }}/scripts/start.sh")
