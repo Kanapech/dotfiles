@@ -3,17 +3,16 @@ author = "Kanapech"
 description = "Default rice (Waybar, SwayNC, Wlogout)"
 version = "1.0.0"
 
+[inherit]
+base = "base"
+
 [scripts]
 start = "scripts/start.sh"
 stop = "scripts/stop.sh"
 
 [symlinks]
 "hypr/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
-"hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
-"hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
-"rofi" = "~/.config/rofi"
-"yazi" = "~/.config/yazi"
 "swaync" = "~/.config/swaync"
 "wlogout" = "~/.config/wlogout"
 "waybar" = "~/.config/waybar"
-"kitty" = "~/.config/kitty"
+

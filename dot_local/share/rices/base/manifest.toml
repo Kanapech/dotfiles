@@ -1,3 +1,7 @@
 [symlinks]
-"hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
 "hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
+"hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
+
+"rofi" = "~/.config/rofi"
+"yazi" = "~/.config/yazi"
+"kitty" = "~/.config/kitty"
