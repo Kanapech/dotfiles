@@ -65,10 +65,12 @@ default_position = { x = 20, y = 20, anchor = "top_right" }
 match.title = '.*\.exe'
 tearing = true
 
+# Minecraft
 [[window_rule]]
 match.title = '.*minecraft.*'
 tearing = true
 
+# Steam Games
 [[window_rule]]
 match.app_id = '^steam_app'
 tearing = true
@@ -94,7 +96,7 @@ match.app_id = 'discord'
 blur = true
 opacity = 0.92
 
-# Discord
+# Kitty
 [[window_rule]]
 match.app_id = 'kitty'
 blur = true
@@ -112,4 +114,5 @@ shadow = false
 [[layer_rule]]
 match.namespace = 'rofi'
 blur = true
+blur_optimized = false
 blur_ignore_alpha = 0.2
