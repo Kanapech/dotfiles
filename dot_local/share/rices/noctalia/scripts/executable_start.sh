@@ -10,6 +10,4 @@ if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
     pgrep -x hypridle >/dev/null || setsid -f hypridle >/dev/null 2>&1
 fi
 
-# Audio
-pgrep -x easyeffects >/dev/null || setsid -f easyeffects --hide-window --service-mode >/dev/null 2>&1
 exit 0

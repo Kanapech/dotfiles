@@ -16,3 +16,5 @@ stop = "scripts/stop.sh"
 "wlogout" = "~/.config/wlogout"
 "waybar" = "~/.config/waybar"
 
+[validate]
+lua = "luac -p hypr/*.lua"

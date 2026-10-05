@@ -8,3 +8,7 @@ base = "base"
 
 [symlinks]
 "noctalia" = "~/.config/noctalia"
+
+[validate]
+lua = "luac -p hypr/*.lua"
+noctalia = "noctalia config validate noctalia/"
