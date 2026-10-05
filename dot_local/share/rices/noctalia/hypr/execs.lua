@@ -3,13 +3,9 @@
 hl.on("hyprland.start", function()
     -- Core components (authentication, idle)
     hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
-    hl.exec_cmd("hypridle")
     hl.exec_cmd("hyprpm reload -n")
     hl.exec_cmd("dbus-update-activation-environment --all")
     hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-
-    -- Desktop shell
-    hl.exec_cmd("noctalia")
 
     -- Boot lock: wait for the shell's IPC, then lock. If Noctalia never
     -- comes up (15s), fall back to hyprlock so the session is never left

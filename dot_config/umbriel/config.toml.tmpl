@@ -3,9 +3,9 @@
 
 [general]
 autostart = [
-    "noctalia",
     "systemctl --user restart sunshine.service",
     "~/.config/umbriel/lock-at-start.sh",
+    "bash $HOME/.local/share/rices/{{ .rice.active }}/scripts/start.sh"
 ]
 mod_key = "Super"
 show_cheatsheet = false
