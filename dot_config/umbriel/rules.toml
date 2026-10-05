@@ -91,7 +91,13 @@ default_focused = false
 # Discord
 [[window_rule]]
 match.app_id = 'discord'
+blur = true
 opacity = 0.92
+
+# Discord
+[[window_rule]]
+match.app_id = 'kitty'
+blur = true
 
 # FFPlay / MPV
 [[window_rule]]
