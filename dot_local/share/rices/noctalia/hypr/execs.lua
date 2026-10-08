@@ -12,9 +12,6 @@ hl.on("hyprland.start", function()
     -- unlocked on an autologin, remote-access machine.
     hl.exec_cmd([[sh -c 'i=0; while [ $i -lt 30 ]; do noctalia msg status >/dev/null 2>&1 && exec noctalia msg session lock; i=$((i+1)); sleep 0.5; done; exec hyprlock']])
 
-    -- Audio
-    hl.exec_cmd("easyeffects --hide-window --service-mode")
-
     -- Clipboard history: Noctalia ships its own clipboard panel (SUPER+V),
     -- so no cliphist watchers here.
 
