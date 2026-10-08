@@ -15,4 +15,25 @@ desc = "Ripdrag drag/drop selected files"
 
 [[mgr.prepend_keymap]]
 on  = "M"
-run = "plugin mount"
+run = "plugin lsblk-mount"
+desc = "Open the drive mount manager"
+
+[[mgr.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch"
+desc = "Compress with ouch"
+
+[[mgr.prepend_keymap]]
+on = [ "q" ]
+run = "plugin autosession -- save-and-quit"
+desc = "Save session and quit"
+
+[[mgr.prepend_keymap]]
+on = [ "<C-t>" ]
+run = "plugin close-and-restore-tab restore"
+desc = "Restore the previously closed tab"
+
+[[mgr.prepend_keymap]]
+on = [ "c", "m" ]
+run = "plugin chmod"
+desc = "Chmod on selected files"

@@ -167,6 +167,11 @@ previewers = [
 	# Fallback
 	{ url = "*", run = "file" },
 ]
+prepend_previewers = [
+	# Enable file icons
+	{ mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run = "ouch --archive-icon='📚' --show-file-icons "},
+	{ mime = "audio/*",  run = "exifaudio"},
+]
 
 [input]
 cursor_blink = false

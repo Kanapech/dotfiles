@@ -1,7 +1,7 @@
 [keybinds]
 # Apps
 "Mod+T" = "spawn:kitty"
-"Mod+E" = "spawn:kitty fish -i -c y"
+"Mod+E" = "spawn:kitty yazi"
 "Mod+B" = "spawn:firefox"
 
 # Noctalia shell

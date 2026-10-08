@@ -3,5 +3,40 @@ use = "yazi-rs/plugins:full-border"
 rev = "6229767"
 hash = "f281261ff04ad7ec867c3f802a50835f"
 
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "596b666"
+hash = "c2f4f4aca257dcceafa9e3b828dbf1c9"
+
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "4506f9d"
+hash = "4761fffb60a12d37096c34a356380cdf"
+
+[[plugin.deps]]
+use = "barbanevosa/autosession"
+rev = "7a12b20"
+hash = "f9b76184511c983db7c6f719eea1e14d"
+
+[[plugin.deps]]
+use = "MasouShizuka/close-and-restore-tab"
+rev = "b2153bc"
+hash = "1493e40f8f4f222c9ecb24cf85ccabd2"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "6229767"
+hash = "87472b05a8c420100f6a2b9cde1e7746"
+
+[[plugin.deps]]
+use = "PHONE1X/lsblk-mount"
+rev = "73e863f"
+hash = "69e36cdc69855863e0c1b176e19838cd"
+
+[[plugin.deps]]
+use = "shafayetejaman/sduf"
+rev = "f43ba4a"
+hash = "5f9b8fcd37fc225437a213c9674a0ffa"
+
 [flavor]
 deps = []
