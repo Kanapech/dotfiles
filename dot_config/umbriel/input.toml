@@ -22,3 +22,5 @@ repeat_rate = 35
 repeat_delay = 300
 numlock_toggle = true
 track_layout = "global"
+layout = "us,fr"
+options = "grp:alt_shift_toggle,grp:win_space_toggle"
