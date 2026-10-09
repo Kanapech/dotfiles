@@ -1,3 +1,5 @@
+--- @sync entry
+
 -- get_current_session
 local _get_current_session = ya.sync(function(state)
   local tabs = cx.tabs
