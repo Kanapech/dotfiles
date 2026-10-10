@@ -9,12 +9,21 @@ configuration {
     sorting-method: "fzf";
 }
 
-/* ===== GLOBAL ===== */
+/* ===== PALETTE — one source of truth for items, tabs, everything ===== */
 * {
+    bg-window:        rgba(51, 51, 51, 0.5);
+    bg-inputbar:      rgba(255, 255, 255, 0.05);
+    bg-item:          rgba(30, 30, 30, 0.25);
+    bg-item-active:   rgba(30, 30, 30, 0.4);
+    bg-item-urgent:   rgba(30, 30, 30, 0.35);
+    bg-item-selected: rgba(66, 66, 66, 0.8);
+    text:             rgba(255, 255, 255, 0.9);
+    text-item:        rgba(255, 255, 255, 0.8);
+    accent:           #6ee7ff;
+
     background: transparent;
     background-color: transparent;
-
-    text-color: rgba(255,255,255,0.9);
+    text-color: @text;
 }
 
 /* ===== WINDOW ===== */
@@ -22,32 +31,30 @@ window {
     location: center;
     anchor: center;
     width: 520px;
-
-    background-color: rgba(51, 51, 51, 0.5);
+    background-color: @bg-window;
     border-radius: 24px;
     padding: 16px;
 }
 
 /* ===== LAYOUT ===== */
 mainbox {
+    children: [ inputbar, listview, mode-switcher ];
     spacing: 14px;
 }
 
 /* ===== SEARCH BAR ===== */
 inputbar {
     border: 1px;
-    background-color: rgba(255,255,255,0.05);
+    background-color: @bg-inputbar;
     border-radius: 14px;
     padding: 10px 14px;
 }
-
 prompt {
     enabled: false;
 }
-
 entry {
     background-color: transparent;
-    text-color: rgba(255,255,255,0.9);
+    text-color: @text;
     placeholder: "Search...";
 }
 
@@ -58,52 +65,60 @@ listview {
     lines: 8;
 }
 
-/* ===== ITEMS (HARD OVERRIDE) ===== */
+/* ===== ITEMS ===== */
 element {
     background-color: transparent;
     border-radius: 14px;
     padding: 10px 14px;
 }
-
-/* NORMAL */
 element normal.normal {
-    background-color: rgba(30,30,30,0.25);
+    background-color: @bg-item;
 }
-
-/* ACTIVE */
 element active.normal {
-    background-color: rgba(30,30,30,0.4);
+    background-color: @bg-item-active;
 }
-
-/* URGENT */
 element urgent.normal {
-    background-color: rgba(30,30,30,0.35);
+    background-color: @bg-item-urgent;
 }
-
-/* SELECTED */
 element selected.normal {
-    background-color: rgba(66, 66, 66, 0.8);
+    background-color: @bg-item-selected;
 }
-
-/* TEXT */
 element-text {
     font: "JetBrainsMono Nerd Font Medium 13";
     background-color: transparent;
-    text-color: rgba(255,255,255,0.8);
+    text-color: @text-item;
     margin: 2px 0px;
 }
-
-/* SELECTED TEXT */
 element selected.normal element-text {
-    text-color: #6ee7ff;
+    text-color: @accent;
 }
-
-/* ICON */
 element-icon {
     size: 20px;
 }
 
-/* REMOVE SCROLLBAR */
+/* ===== TABS — mirrors `element` ===== */
+mode-switcher {
+    spacing: 10px;
+}
+button {
+    background-color: transparent; /* same base as element */
+    border: 0px; /* kill rofi's default button border */
+    border-radius: 14px;
+    padding: 10px 14px;
+    font: "JetBrainsMono Nerd Font Medium 13";
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+button normal.normal {
+    background-color: @bg-item; /* = element normal.normal */
+    text-color: @text-item; /* = element-text */
+}
+button selected.normal {
+    background-color: @bg-item-selected; /* = element selected.normal */
+    text-color: @accent; /* = selected element-text */
+}
+
+/* ===== SCROLLBAR OFF ===== */
 scrollbar {
     handle-width: 0px;
 }
