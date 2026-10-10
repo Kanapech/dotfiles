@@ -2,9 +2,13 @@
 [[window_rule]]
 match.app_id = '^dev\.noctalia\.Noctalia$'
 default_floating = true
+blur = true
+blur_optimized = false
+blur_ignore_alpha = 0.01
+blur_popups = true
 
 [[layer_rule]]
-match.namespace = '^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$'
+match.namespace = '^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher|settings)$'
 blur = true
 blur_optimized = false
 blur_ignore_alpha = 0.01

@@ -521,7 +521,7 @@ temperature_day = 6500
 temperature_night = 4000
 
 [notification]
-background_opacity = 0.97000002861022949
+background_opacity = 0.55000001192092896
 border = false
 border_color = "outline"
 border_width = 1.0
@@ -621,7 +621,7 @@ readline_shortcuts = false
 screen_time_enabled = false
 settings_expand_all_groups = false
 settings_show_advanced = true
-settings_window_translucent = false
+settings_window_translucent = true
 setup_wizard_enabled = true
 shared_gl_context = true
 show_location = true
@@ -772,7 +772,7 @@ umbriel_overview_type_to_launch_enabled = true
 
     [shell.window_switcher]
     current_workspace_only = false
-    mru = false
+    mru = true
     show_all_outputs = true
     show_app_icon = true
     show_caption = true
@@ -828,12 +828,12 @@ mode = "dark"
 pure_black_dark = false
 shell_mode = "follow"
 source = "wallpaper"
-wallpaper_scheme = "faithful"
+wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = []
     community_ids = []
-    enable_builtin_templates = false
+    enable_builtin_templates = true
     enable_community_templates = true
 
 [wallpaper]
@@ -933,4 +933,6 @@ type = "tordex/processes:widget"
 
 [widget.workspaces]
 labels_only_when_occupied = true
+occupied_color = "outline"
 type = "workspaces"
+urgent_color = "on_error"
