@@ -1,43 +1,39 @@
-[[mgr.prepend_keymap]]
-on   = "!"
-for  = "unix"
-run  = 'shell "$SHELL" --block'
-desc = "Open $SHELL here"
+# sudo.yazi
 
-[[mgr.prepend_keymap]]
-on  = "y"
-run = [ 'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
+Call `sudo` in yazi.
 
-[[mgr.prepend_keymap]]
-on  = "<C-n>"
-run = "shell -- ripdrag %s -x 2>/dev/null &"
-desc = "Ripdrag drag/drop selected files"
+## Installation
 
-[[mgr.prepend_keymap]]
-on  = "M"
-run = "plugin lsblk-mount"
-desc = "Open the drive mount manager"
+```bash
+$ ya pkg add TD-Sky/sudo
+```
 
-[[mgr.prepend_keymap]]
-on = ["C"]
-run = "plugin ouch"
-desc = "Compress with ouch"
+## Requirements
 
-[[mgr.prepend_keymap]]
-on = [ "q" ]
-run = "plugin autosession -- save-and-quit"
-desc = "Save session and quit"
+- [nushell](https://github.com/nushell/nushell)
 
-[[mgr.prepend_keymap]]
-on = [ "<C-t>" ]
-run = "plugin close-and-restore-tab restore"
-desc = "Restore the previously closed tab"
+## Functions
 
-[[mgr.prepend_keymap]]
-on = [ "c", "m" ]
-run = "plugin chmod"
-desc = "Chmod on selected files"
+- [x] copy files
+- [x] move files
+- [x] rename file
+- [x] bulk rename files
+- [x] trash files
+- [x] remove files
+- [x] create absolute-path symbolic links
+- [x] create relative-path symbolic links
+- [x] create hard links
+- [x] touch new file
+- [x] make new directory
+- [x] change files' mode bits
 
+> You can use [conceal](https://github.com/TD-Sky/conceal) to browse and restore trashed files
+
+## Usage
+
+Here are my own keymap for reference only:
+
+```toml
 # sudo cp/mv
 [[mgr.prepend_keymap]]
 on = ["R", "p", "p"]
@@ -97,3 +93,4 @@ desc = "sudo delete"
 on = ["R", "m"]
 run = "plugin sudo -- chmod"
 desc = "sudo chmod"
+```

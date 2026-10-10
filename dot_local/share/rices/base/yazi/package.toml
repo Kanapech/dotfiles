@@ -38,5 +38,10 @@ use = "shafayetejaman/sduf"
 rev = "f43ba4a"
 hash = "5f9b8fcd37fc225437a213c9674a0ffa"
 
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "e70796a"
+hash = "74129f78c811cfe7c694d86c3f634c26"
+
 [flavor]
 deps = []
