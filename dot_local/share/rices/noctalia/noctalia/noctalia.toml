@@ -107,10 +107,10 @@ order = [ "default" ]
 warning_threshold = 10
 
 [brightness]
-enable_ddcutil = false
+enable_ddcutil = true
 ignore_mmids = []
 minimum_brightness = 0.0
-sync_all_monitors = false
+sync_all_monitors = true
 
 [calendar]
 enabled = false
@@ -250,7 +250,7 @@ pre_action_fade_seconds = 2.0
     [idle.behavior.lock]
     action = "lock"
     command = ""
-    enabled = false
+    enabled = true
     locked_timeout = 0.0
     resume_command = ""
     timeout = 600.0
@@ -258,7 +258,7 @@ pre_action_fade_seconds = 2.0
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
     command = ""
-    enabled = false
+    enabled = true
     locked_timeout = 0.0
     resume_command = ""
     timeout = 900.0
@@ -266,7 +266,7 @@ pre_action_fade_seconds = 2.0
     [idle.behavior.screen-off]
     action = "screen_off"
     command = ""
-    enabled = false
+    enabled = true
     locked_timeout = 0.0
     resume_command = ""
     timeout = 660.0
@@ -301,7 +301,7 @@ fingerprint = true
 lock_before_suspend = true
 monitors = []
 tint_intensity = 0.30000001192092896
-transition = [ "fade", "wipe", "disc", "stripes", "zoom", "honeycomb" ]
+transition = [ "zoom" ]
 transition_duration = 1500.0
 wallpaper = ""
 
@@ -309,6 +309,10 @@ wallpaper = ""
 enabled = true
 schema_version = 2
 widget_order = [
+    "lockscreen-widget-0000000000000009",
+    "lockscreen-widget-000000000000000e",
+    "lockscreen-widget-0000000000000007",
+    "lockscreen-widget-0000000000000008",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-login-box@WL-1",
     "lockscreen-login-box@DP-2",
@@ -317,7 +321,13 @@ widget_order = [
     "lockscreen-widget-0000000000000002",
     "lockscreen-widget-0000000000000003",
     "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005"
+    "lockscreen-widget-0000000000000005",
+    "lockscreen-widget-000000000000000b",
+    "lockscreen-widget-000000000000000c",
+    "lockscreen-widget-000000000000000d",
+    "lockscreen-widget-000000000000000f",
+    "lockscreen-widget-0000000000000006",
+    "lockscreen-widget-000000000000000a"
 ]
 
     [lockscreen_widgets.grid]
@@ -329,7 +339,7 @@ widget_order = [
     box_height = 196.0
     box_width = 810.0
     cx = 1280.0
-    cy = 1258.0
+    cy = 1246.0
     enabled = true
     output = "DP-1"
     placement_height = 1440.0
@@ -338,7 +348,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -513,6 +523,184 @@ widget_order = [
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
         background_opacity = 0.0
         format = "{:%a %d %B}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
+    box_height = 112.0
+    box_width = 224.0
+    cx = 1280.0
+    cy = 336.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
+        background = false
+        background_opacity = 0.88
+        center_text = true
+        format = "{:%H:%M}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
+    box_height = 112.0
+    box_width = 384.0
+    cx = 1280.0
+    cy = 972.888916015625
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
+        background = false
+        background_opacity = 0.80000000000000004
+        bands = 64
+        centered = false
+        mirrored = true
+        reversed = false
+        show_when_idle = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
+    box_height = 108.88889312744141
+    box_width = 391.19992065429688
+    cx = 1280.0
+    cy = 974.4444580078125
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "media_player"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000008.settings]
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
+    box_height = 400.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 720.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "fancy_audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000009.settings]
+        background = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000a]
+    box_height = 32.0
+    box_width = 160.0
+    cx = 1280.0
+    cy = 384.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000a.settings]
+        background = false
+        background_opacity = 0.80000000000000004
+        format = "{:%A %d %b %Y}"
+        shadow = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000b]
+    box_height = 112.0
+    box_width = 240.0
+    cx = 1880.0
+    cy = 1240.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "sysmon"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000b.settings]
+        background = true
+        display = "graph"
+        gauge_layout = "horizontal"
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000c]
+    box_height = 112.0
+    box_width = 240.0
+    cx = 344.0
+    cy = 1240.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "volume"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000c.settings]
+        background = true
+        background_opacity = 0.88
+        device = "output"
+        fill_color = "primary"
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000d]
+    box_height = 112.0
+    box_width = 240.0
+    cx = 680.0
+    cy = 1240.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "volume"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000d.settings]
+        background = true
+        background_opacity = 0.88
+        device = "input"
+        fill_color = "primary"
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000e]
+    box_height = 144.0
+    box_width = 176.0
+    cx = 1280.0
+    cy = 720.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000e.settings]
+        background = false
+        circle = true
+        clock_style = "analog"
+        color = "on_surface"
+
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000000f]
+    box_height = 112.0
+    box_width = 240.0
+    cx = 2216.0
+    cy = 1240.0
+    enabled = true
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "sysmon"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000000f.settings]
+        background = true
+        display = "graph"
+        gauge_layout = "horizontal"
+        stat = "gpu_temp"
+        stat2 = "gpu_usage"
 
 [nightlight]
 enabled = false
