@@ -68,16 +68,19 @@ default_position = { x = 20, y = 20, anchor = "top_right" }
 [[window_rule]]
 match.title = '.*\.exe'
 tearing = true
+default_output = "DP-1"
 
 # Minecraft
 [[window_rule]]
 match.title = '.*minecraft.*'
 tearing = true
+default_output = "DP-1"
 
 # Steam Games
 [[window_rule]]
 match.app_id = '^steam_app'
 tearing = true
+default_output = "DP-1"
 
 # Archetype Plini
 [[window_rule]]
