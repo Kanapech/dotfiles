@@ -1155,3 +1155,7 @@ labels_only_when_occupied = true
 occupied_color = "outline"
 type = "workspaces"
 urgent_color = "on_error"
+
+[theme.templates.user.legcord_custom]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/Noctalia-Midnight-Transparent-BD/src.css"
+output_path = "$XDG_CONFIG_HOME/legcord/themes/Noctalia-Midnight-Transparent-BD.theme.css"
