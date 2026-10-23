@@ -99,7 +99,20 @@ default_focused = false
 
 # Discord
 [[window_rule]]
-match.app_id = 'discord'
+match.app_id = '^(discord|legcord)$'
+blur = true
+default_output = "DP-2"
+default_workspace = 1
+
+[[window_rule]]
+match.app_id = '^steam$'
+blur = true
+opacity = 0.92
+default_output = "DP-2"
+
+# SourceGit
+[[window_rule]]
+match.app_id = 'SourceGit'
 blur = true
 opacity = 0.92
 
