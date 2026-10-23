@@ -60,7 +60,7 @@ return {
     state.event = "@autosession-event"
 
     ps.sub_remote(state.event, function(body)
-      if not state.restored then
+      if not state.restored and not os.getenv("YAZI_NO_RESTORE") then
         state.session = body
         _restore_session()
       end
