@@ -317,10 +317,10 @@ wallpaper = ""
 enabled = true
 schema_version = 2
 widget_order = [
+    "lockscreen-widget-0000000000000007",
     "lockscreen-widget-0000000000000008",
     "lockscreen-widget-0000000000000009",
     "lockscreen-widget-000000000000000e",
-    "lockscreen-widget-0000000000000007",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-login-box@WL-1",
     "lockscreen-login-box@DP-2",
@@ -743,7 +743,7 @@ show_app_name = true
 width = 360
 
 [osd]
-background_opacity = 0.97000002861022949
+background_opacity = 0.55000001192092896
 border = true
 border_color = "outline"
 border_width = 1.0
@@ -1046,13 +1046,13 @@ sync_color_scheme = true
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "btop", "gtk3", "gtk4", "hyprland", "kitty", "umbriel" ]
-    community_ids = [ "pear-desktop", "micro", "vscode", "steam", "rofi", "yazi" ]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kitty", "umbriel" ]
+    community_ids = [ "pear-desktop", "discord", "micro", "vscode", "steam", "rofi", "yazi" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
 [wallpaper]
-directory = ""
+directory = "/home/joran/Pictures/Wallpapers"
 directory_dark = ""
 directory_light = ""
 edge_smoothness = 0.30000001192092896
