@@ -7,6 +7,10 @@ blur_optimized = false
 blur_ignore_alpha = 0.01
 blur_popups = true
 
+[[window_rule]]
+match.app_id = '^dev.noctalia.UmbrielSharePicker'
+default_floating = true
+
 [[layer_rule]]
 match.namespace = '^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher|settings)$'
 blur = true
@@ -99,7 +103,7 @@ default_focused = false
 
 # Discord
 [[window_rule]]
-match.app_id = '^(discord|legcord)$'
+match.app_id = '^(discord|legcord|vesktop)$'
 blur = true
 default_output = "DP-2"
 default_workspace = 1

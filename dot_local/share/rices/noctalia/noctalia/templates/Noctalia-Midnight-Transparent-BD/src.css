@@ -77,36 +77,36 @@ body {
   --colors: on; /* off: discord default colors, on: midnight custom colors */
 
   /* text colors */
-  --text-0: #111318; /* text on colored elements */
-  --text-1: #e2e2e9; /* other normally white text */
-  --text-2: #e2e2e9; /* headings and important text */
-  --text-3: #c4c6d0; /* normal text */
-  --text-4: #8e9099; /* icon buttons and channels */
-  --text-5: #44474e; /* muted channels/chats and timestamps */
+  --text-0: {{colors.background.default.hex}}; /* text on colored elements */
+  --text-1: {{colors.on_background.default.hex}}; /* other normally white text */
+  --text-2: {{colors.on_surface.default.hex}}; /* headings and important text */
+  --text-3: {{colors.on_surface_variant.default.hex}}; /* normal text */
+  --text-4: {{colors.outline.default.hex}}; /* icon buttons and channels */
+  --text-5: {{colors.outline_variant.default.hex}}; /* muted channels/chats and timestamps */
 
   /* background and dark colors */
-  --bg-1: #0c0e13; /* dark buttons when clicked */
-  --bg-2: #191c20; /* dark buttons */
-  --bg-3: #1d20248c; /* spacing, secondary elements */
-  --bg-4: #1113188c; /* main background color */
-  --hover: #e2e2e915; /* channels and buttons when hovered */
-  --active: #33353a; /* channels and buttons when clicked or selected */
-  --active-2: #111318; /* extra state for transparent buttons */
-  --message-hover: #44474e40; /* messages when hovered */
+  --bg-1: {{colors.surface_container_lowest.default.hex}}; /* dark buttons when clicked */
+  --bg-2: {{colors.surface_container_low.default.hex}}; /* dark buttons */
+  --bg-3: {{colors.surface_container.default.hex}}8c; /* spacing, secondary elements */
+  --bg-4: {{colors.surface.default.hex}}8c; /* main background color */
+  --hover: {{colors.on_surface.default.hex}}15; /* channels and buttons when hovered */
+  --active: {{colors.surface_container_highest.default.hex}}; /* channels and buttons when clicked or selected */
+  --active-2: {{colors.surface.default.hex}}; /* extra state for transparent buttons */
+  --message-hover: {{colors.surface_variant.default.hex}}40; /* messages when hovered */
 
   /* accent colors */
-  --accent-1: #aac7ff; /* links and other accent text */
-  --accent-2: #274777; /* small accent elements */
-  --accent-3: #bec6dc; /* accent buttons */
-  --accent-4: #dae2f9; /* accent buttons when hovered */
-  --accent-5: #bec6dc; /* accent buttons when clicked */
-  --accent-new: #ffb4ab; /* stuff that's normally red like mute/deafen buttons */
+  --accent-1: {{colors.primary.default.hex}}; /* links and other accent text */
+  --accent-2: {{colors.primary_container.default.hex}}; /* small accent elements */
+  --accent-3: {{colors.secondary.default.hex}}; /* accent buttons */
+  --accent-4: {{colors.on_secondary_container.default.hex}}; /* accent buttons when hovered */
+  --accent-5: {{colors.secondary.default.hex}}; /* accent buttons when clicked */
+  --accent-new: {{colors.error.default.hex}}; /* stuff that's normally red like mute/deafen buttons */
 
-    --mention: linear-gradient(to right, color-mix(in hsl, #274777, transparent 90%) 40%, transparent); /* background of messages that mention you */
-  --mention-hover: linear-gradient(to right, color-mix(in hsl, #274777, transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
+    --mention: linear-gradient(to right, color-mix(in hsl, {{colors.primary_container.default.hex}}, transparent 90%) 40%, transparent); /* background of messages that mention you */
+  --mention-hover: linear-gradient(to right, color-mix(in hsl, {{colors.primary_container.default.hex}}, transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
 
-    --reply: linear-gradient(to right, color-mix(in hsl, #573e5c, transparent 90%) 40%, transparent); /* background of messages that reply to you */
-  --reply-hover: linear-gradient(to right, color-mix(in hsl, #573e5c, transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+    --reply: linear-gradient(to right, color-mix(in hsl, {{colors.tertiary_container.default.hex}}, transparent 90%) 40%, transparent); /* background of messages that reply to you */
+  --reply-hover: linear-gradient(to right, color-mix(in hsl, {{colors.tertiary_container.default.hex}}, transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
   /* status indicator colors */
   --online: var(--green-2); /* change to #43a25a for default */
